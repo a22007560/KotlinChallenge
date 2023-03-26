@@ -31,4 +31,8 @@ class Carro(indetificador: String, var motor: Motor) : Veiculo(indetificador), L
     override fun estaLigado(): Boolean {
         return motor.ligado
     }
+
+    override fun toString(): String {
+        return "Carro | $identificador | $dataDeAquisicao | $posicao"
+    }
 }

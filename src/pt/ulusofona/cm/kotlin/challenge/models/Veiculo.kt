@@ -9,4 +9,6 @@ abstract class Veiculo(var identificador: String): Movimentavel {
 
 
     abstract fun requerCarta():Boolean
+
+
 }

@@ -14,4 +14,8 @@ class Bicicleta(identificador: String) : Veiculo(identificador) {
             posicao.alterarPosicaoPara(x, y)
         }
     }
+
+    override fun toString(): String {
+        return "Bicicleta | $identificador | $dataDeAquisicao | $posicao"
+    }
 }

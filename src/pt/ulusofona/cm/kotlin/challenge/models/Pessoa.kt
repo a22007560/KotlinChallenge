@@ -75,5 +75,9 @@ class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel{
         }
     }
 
+    override fun toString(): String {
+        return "Pessoa | $nome | $dataDeNascimento | $posicao"
+    }
+
 
 }
