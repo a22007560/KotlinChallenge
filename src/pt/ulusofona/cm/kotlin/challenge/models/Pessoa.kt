@@ -49,6 +49,8 @@ class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel{
                     } else {
                         veiculo.moverPara(x, y)
                     }
+                } else {
+                    veiculo.moverPara(x, y)
                 }
             }
         }
