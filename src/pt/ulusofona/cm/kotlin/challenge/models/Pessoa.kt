@@ -43,12 +43,8 @@ class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel{
     fun moverVeiculoPara(identificador: String, x: Int, y: Int) {
         for (veiculo in veiculos) {
             if (veiculo.identificador == identificador) {
-                if(veiculo.requerCarta()) {
-                    if (!temCarta()){
-                        throw PessoaSemCartaException(nome)
-                    } else {
-                        veiculo.moverPara(x, y)
-                    }
+                if(veiculo.requerCarta() && !temCarta()) {
+                    throw PessoaSemCartaException(nome)
                 } else {
                     veiculo.moverPara(x, y)
                 }
