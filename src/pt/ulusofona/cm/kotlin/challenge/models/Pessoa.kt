@@ -5,6 +5,7 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
+import java.text.SimpleDateFormat
 import java.util.*
 
 import java.util.Date
@@ -75,7 +76,7 @@ class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel{
     }
 
     override fun toString(): String {
-        return "Pessoa | $nome | $dataDeNascimento | $posicao"
+        return "Pessoa | $nome | ${SimpleDateFormat("dd-MM-YYYY").format(dataDeNascimento)} | $posicao"
     }
 
 
