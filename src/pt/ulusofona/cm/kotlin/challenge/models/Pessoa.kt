@@ -47,6 +47,7 @@ class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel{
                     throw PessoaSemCartaException(nome)
                 } else {
                     veiculo.moverPara(x, y)
+                    return
                 }
             }
         }
