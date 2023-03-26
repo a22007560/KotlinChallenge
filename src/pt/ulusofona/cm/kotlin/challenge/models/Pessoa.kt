@@ -45,7 +45,6 @@ class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel{
                 if(veiculo.requerCarta()) {
                     if (!temCarta()){
                         throw PessoaSemCartaException(nome)
-
                     } else {
                         veiculo.moverPara(x, y)
                     }
@@ -60,7 +59,7 @@ class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel{
 
     fun tirarCarta() {
         val idade = (Date().time - dataDeNascimento.time) / 1000 / 60 / 60 / 24 / 365
-        if (idade > 18) {
+        if (idade >= 18) {
             carta = Carta()
         } else {
             throw MenorDeIdadeException()
