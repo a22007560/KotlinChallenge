@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 import java.util.Date
+import java.util.concurrent.TimeUnit
 
 class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel{
 
@@ -61,7 +62,8 @@ class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel{
     }
 
     fun tirarCarta() {
-        val idade = (Date().time - dataDeNascimento.time) / 1000 / 60 / 60 / 24 / 365
+        val diff = Date().time - dataDeNascimento.time
+        val idade = TimeUnit.MILLISECONDS.toDays(diff) / 365
         if (idade >= 18) {
             carta = Carta()
         } else {
