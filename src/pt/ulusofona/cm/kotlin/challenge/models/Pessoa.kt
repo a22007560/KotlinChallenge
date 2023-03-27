@@ -29,12 +29,15 @@ class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel{
         throw VeiculoNaoEncontradoException()
     }
 
-    fun venderVeiculo(identificador: String, comprador:Pessoa) {
-        for (veiculo in veiculos) {
+    fun venderVeiculo(identificador: String, comprador: Pessoa) {
+        val it = veiculos.iterator()
+        while (it.hasNext()) {
+            val veiculo = it.next()
             if (veiculo.identificador == identificador) {
-                veiculos.remove(veiculo)
+                it.remove()
                 veiculo.dataDeAquisicao = Date()
                 comprador.comprarVeiculo(veiculo)
+                return
             }
         }
         throw VeiculoNaoEncontradoException()
