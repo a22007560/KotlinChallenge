@@ -11,13 +11,13 @@ class Carro(indetificador: String, var motor: Motor) : Veiculo(indetificador), L
     }
 
     override fun moverPara(x: Int, y: Int) {
-        if (posicao.x == x && posicao.y == y) {
-            throw AlterarPosicaoException()
-        } else {
+        if (posicao.x != x || posicao.y != y) {
             if (estaLigado()) {
                 posicao.alterarPosicaoPara(x, y)
                 motor.desligar()
             }
+        } else {
+            throw AlterarPosicaoException()
         }
     }
 
